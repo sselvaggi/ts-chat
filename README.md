@@ -16,5 +16,6 @@ npm run dev
 Clone it to build awesome stuff with it ❤️
 
 ## Forked from:
-https://www.youtube.com/watch?v=D4uieSBMFuk (Socket.io + Typescript)
+https://github.com/codigofacilito/express-typescript (Socket.io + Typescript)
 https://github.com/socketio/chat-example (Socket.io)
+https://github.com/TypeStrong/ts-node/issues/104 (ts-node production)
