@@ -1,15 +1,8 @@
-import Server from './Server';
-import {Socket} from 'socket.io';
-export const server = new Server(8081, 'frontend');
-server.io.on('connection', (socket: Socket) => {
-  console.log('new socket conn');
-  socket.on('chat message', (message: String) => {
-    server.io.emit('chat message', message);
-    socket.on('disconnect', () => {
-      console.log('user disconnected');
-    });
-    socket.on('finish', () => {
-      console.log('user disconnected');
-    });
-  });
-});
+import RealtimeHttpServer from './RealtimeHttpServer';
+import Chat from './Chat';
+import * as express from 'express';
+import * as path from 'path';
+const server = new RealtimeHttpServer(8081);
+server.io.on(RealtimeHttpServer.CONNECTION, Chat.create);
+server.app.use(express.static(path.join(__dirname, 'frontend')));
+export default server;
