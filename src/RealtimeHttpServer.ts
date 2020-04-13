@@ -14,4 +14,7 @@ export default class RealtimeHttpServer {
       console.log(`Server started at http://localhost:${port}`);
     })
   }
+  public close() {
+    this.server.close()
+  }
 }

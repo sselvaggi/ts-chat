@@ -1,5 +1,6 @@
 node_modules
 trash
+uploads
 package-lock.json
 dist
 .env
