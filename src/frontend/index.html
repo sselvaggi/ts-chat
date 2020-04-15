@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body { font: 13px Helvetica, Arial; }
@@ -22,28 +22,6 @@
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io-stream/0.9.1/socket.io-stream.js"></script>
-    <script>
-      const socket = io();
-      const stream = ss.createStream();
-      document.querySelector('#file').addEventListener('change', event => {
-        console.log('file')
-        const file = event.target.files[0];
-        const stream = ss.createStream();
-        ss(socket).emit('file', stream, {size: file.size});
-        ss.createBlobReadStream(file).pipe(stream);
-      });
-      document.querySelector('form').addEventListener('submit', event => {
-        event.preventDefault();
-        socket.emit('chat message', document.querySelector('#m').value);
-        return false;
-      });
-      socket.on('chat message', message => {
-        const li = document.createElement('li');
-        li.textContent = message;
-        document.querySelector('#messages')
-        .appendChild(li);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-    </script>
+    <script src="bundle.js"></script>
   </body>
 </html>

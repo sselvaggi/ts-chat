@@ -1,6 +1,7 @@
 node_modules
 trash
 uploads
+src/public/*.js
 package-lock.json
 dist
 .env
