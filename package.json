@@ -17,18 +17,13 @@
     "express": "^4.16.2",
     "socket.io": "^2.3.0",
     "socket.io-stream": "^0.9.1",
+    "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
-    "ts-node": "^8.8.2",
     "@types/socket.io-client": "^1.4.32",
-    "html-webpack-plugin": "^4.2.0",
     "mocha": "^7.1.1",
-    "node-watch": "^0.6.3",
-    "ts-loader": "^6.2.2",
-    "ts-node-dev": "^1.0.0-pre.44",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "ts-node-dev": "^1.0.0-pre.44"
   }
 }
