@@ -1,8 +1,10 @@
-///<reference path="types.d.ts"/>
+///<reference path="../types.d.ts"/>
 import sioc from 'socket.io-client';
 import ss from 'socket.io-stream';
-const CHAT_MESSAGE='CHAT_MESSAGE'
-const socket = sioc();
+import parser from 'socket.io-msgpack-parser';
+const CHAT_MESSAGE='CHAT_MESSAGE';
+//@ts-ignore
+const socket = sioc({parser});
 const fileInput: HTMLInputElement = <HTMLInputElement>document.querySelector('#file')!
 fileInput.addEventListener('change', (event: Event) => {
   const inputEvent:HTMLInputEvent = <HTMLInputEvent>event;
@@ -17,8 +19,9 @@ fileInput.addEventListener('change', (event: Event) => {
   }
 });
 
-const m:HTMLInputElement = <HTMLInputElement>document.querySelector('#m')!
-document.querySelector('form')?.addEventListener('submit', event => {
+const m:HTMLInputElement = document.querySelector<HTMLInputElement>('#m')!
+document.querySelector('form')
+?.addEventListener('submit', event => {
   event.preventDefault();
   socket.emit(CHAT_MESSAGE, m.value);
   return false;
